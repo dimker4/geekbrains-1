@@ -1,8 +1,10 @@
+package ru.geekbrains.lesson2;
+
 public class lesson2 {
 
     public static void main(String[] args)
     {
-        int[] array = {0, 1, 2, 3, 4, 5, -1, 10, -3};
+        int[] array = {0, 1, 2, 3, 4, 5, -1, 10, -3}; 
 
         // Задание 5
         System.out.println("min: " + getMinFromArray(array));
@@ -46,7 +48,8 @@ public class lesson2 {
     //Задание 6
     public static boolean checkSumParts (int[] array)
     {
-        int sumLeft = 0, sumRight = 0;
+        int sumLeft = 0; 
+        int sumRight = 0;
 
         for (int i = 0; i <= array.length; i++)
         {
