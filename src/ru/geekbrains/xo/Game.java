@@ -42,7 +42,7 @@ public class Game {
 
     }
 
-    public static void initMap() {
+    public static void initMap() { // Создадим поле
         map = new char[SIZE][SIZE];
 
         for (int i = 0; i < SIZE; i ++) {
@@ -52,7 +52,7 @@ public class Game {
         }
     }
 
-    public static void printMap() {
+    public static void printMap() { // Нарисуем поле
 
         for (int i = 0; i <= SIZE; i ++) {
             System.out.print(i + " ");
@@ -84,7 +84,7 @@ public class Game {
         }
     }
 
-    public static void doHumanTurn () {
+    public static void doHumanTurn () { // Ход человека
         Scanner sc = new Scanner(System.in);
         int x = 0;
         int y = 0;
@@ -95,29 +95,29 @@ public class Game {
         do {
             y = sc.nextInt() - 1;
             x = sc.nextInt() - 1;
-        } while (!isValidCell(y, x));
+        } while (!isValidCell(y, x)); // Проверим на  корректность
 
         map[y][x] = DOT_X;
     }
 
-    public static void doAiTurn () {
+    public static void doAiTurn () { // Ход комьютера
         int x = 0;
         int y = 0;
         int[] arrayCoordinate = new int[2];
 
         do {
-            arrayCoordinate = getCoordinateForTurnAi();
+            arrayCoordinate = getCoordinateForTurnAi(); // Получим координаты для хода комьютера
             y = arrayCoordinate[0];
             x = arrayCoordinate[1];
 
-        } while (!isValidCell(y, x));
+        } while (!isValidCell(y, x)); // Проверим на корректность хода
 
         System.out.println("Комьютер сходил " + (y + 1) + " " + (x + 1));
 
         map[y][x] = DOT_0;
     }
 
-    public static boolean victoryCondition (char symbol) {
+    public static boolean victoryCondition (char symbol) { // Проверим на победу
         /* Буду собирать количество указанных симоволов для каждой ситуации (главная, побочная диагонали, строки, столбцы)
          * в одномерный массив, в конце метода буду проверять есть ли в какой-нибудь ячейки колчество символов, необходимое для победы
          */
@@ -166,7 +166,7 @@ public class Game {
         return false;
     }
 
-    public static int[] getCoordinateForTurnAi () {
+    public static int[] getCoordinateForTurnAi () { // Получим координаты для блокировки человека
         int[] arrayBlock = new int[SIZE * 2 + 2];
         int cnt = 0;
         int[] result = new int[2];
@@ -255,7 +255,7 @@ public class Game {
         return result;
     }
 
-    public static boolean isFullMap() {
+    public static boolean isFullMap() { // Проверим на ничью
         int cnt = 0;
         for (int i = 0 ; i < SIZE; i ++) {
             for (int j = 0; j < SIZE; j ++) {
