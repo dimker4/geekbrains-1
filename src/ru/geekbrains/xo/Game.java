@@ -4,11 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
-    public static final int SIZE = 3;
+    public static final int SIZE = 5;
     public static final char CHAR_EMPTY = '.';
     public static final char DOT_X = 'X';
     public static final char DOT_0 = '0';
-    public static final int DOTS_TO_WIN = 3;
+    public static final int DOTS_TO_WIN = 4;
     public static char[][] map;
 
     public static void main(String[] args) {
@@ -123,30 +123,45 @@ public class Game {
          */
         int[] arrayWin = new int[SIZE * 2 + 2];
         int cnt = 0;
+        int countOpponentDots = 0; // Количество сиволов оппонета 
         for (int i = 0; i < SIZE; i ++) { // Считаем главную диагональ
             if (map[i][i] == symbol) {
                 arrayWin[cnt] ++;
             }
+            if (map[i][i] != symbol && map[i][i] != CHAR_EMPTY) { // Если не проверяемый символ и не пустая ячейка, значит символ оппонента
+                countOpponentDots++;
+            }
         }
+        arrayWin[cnt] -= countOpponentDots;
         cnt++;
+        countOpponentDots = 0;
 
         for (int i = 0; i < SIZE; i ++) {
             for (int j = 0; j < SIZE; j ++) { // Считаем побочную диагональ
                 if (i + j == SIZE-1 && map[i][j] == symbol) {
                     arrayWin[cnt] ++;
                 }
+                if (map[i][j] != symbol && map[i][j] != CHAR_EMPTY) { // Если не проверяемый символ и не пустая ячейка, значит символ оппонента
+                    countOpponentDots++; // Считаем символы оппонента
+                }
             }
         }
-
+        arrayWin[cnt] -= countOpponentDots; // Вычитаем сиволы оппонента из суммы проверяемых сиволов
         cnt++;
+        countOpponentDots = 0;
 
         for (int i = 0; i < SIZE; i ++) { // Считаем строки
             for (int j = 0; j < SIZE; j ++) {
                 if (map[i][j] == symbol) {
                     arrayWin[cnt] ++;
                 }
+                if (map[i][j] != symbol && map[i][j] != CHAR_EMPTY) { // Если не проверяемый символ и не пустая ячейка, значит символ оппонента
+                    countOpponentDots++;
+                }
             }
+            arrayWin[cnt] -= countOpponentDots; // Вычитаем сиволы оппонента из суммы проверяемых сиволов
             cnt++;
+            countOpponentDots = 0;
         }
 
         for (int i = 0; i < SIZE; i ++) { // Считаем столбцы
@@ -154,8 +169,13 @@ public class Game {
                 if (map[j][i] == symbol) {
                     arrayWin[cnt] ++;
                 }
+                if (map[j][i] != symbol && map[j][i] != CHAR_EMPTY) { // Если не проверяемый символ и не пустая ячейка, значит символ оппонента
+                    countOpponentDots++;
+                }
             }
+            arrayWin[cnt] -= countOpponentDots;
             cnt++;
+            countOpponentDots = 0;
         }
 
         for (int i = 0; i < arrayWin.length; i ++) {
