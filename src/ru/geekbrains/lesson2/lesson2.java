@@ -156,7 +156,7 @@ public class lesson2 {
     public static int[] transformArray (int[] array, int offset)
     {
         int tmp = 0;
-        int size = array.length;
+        int size = array.length;   
         if (offset >= 0)
         {
             for (int i = 1; i <= offset; i ++) // Цикл  размера сдвига
