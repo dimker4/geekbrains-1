@@ -189,6 +189,8 @@ public class Game {
     public static int[] getCoordinateForTurnAi () { // Получим координаты для блокировки человека
         int[] arrayBlock = new int[SIZE * 2 + 2];
         int cnt = 0;
+        // Количество своих сиволов
+        int countTheirtDots = 0;
         int[] result = new int[2];
         Random random = new Random();
 
@@ -196,7 +198,13 @@ public class Game {
             if (map[i][i] == DOT_X) {
                 arrayBlock[cnt] ++;
             }
+            if (map[i][i] != DOT_X && map[i][i] != CHAR_EMPTY) { // Если не проверяемый символ и не пустая ячейка, значит символ оппонента
+                countTheirtDots++;
+            }
         }
+
+        arrayBlock[cnt] -= countTheirtDots;
+        countTheirtDots = 0;
 
         if (arrayBlock[cnt] == DOTS_TO_WIN - 1) { // Если не хвататет 1 до выигрыша, то занимаем её
             for (int i = 0; i < SIZE; i ++) { // Считаем главную диагональ
