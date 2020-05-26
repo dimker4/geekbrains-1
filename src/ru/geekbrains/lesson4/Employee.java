@@ -1,4 +1,4 @@
 package ru.geekbrains.lesson4;
 
-public class Cat {
+public class Employee {
 }
