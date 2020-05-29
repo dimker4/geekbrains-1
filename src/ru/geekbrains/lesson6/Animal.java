@@ -1,6 +1,6 @@
 package ru.geekbrains.lesson6;
 
-public abstract class Animal { // Абстракрый класс, так как есть абрстрактные методы
+public abstract class Animal { // Абстракрый класс, так как нам не надо создавать объекты Animal, это только шаблон
     // Видимость в пределах пакета и у наследников и обязательная к инициализации
     protected final String name;
     protected int runningLimit;
@@ -15,8 +15,29 @@ public abstract class Animal { // Абстракрый класс, так как
         this.jumpLimit = jumpLimit;
     }
 
-    // Абстракный метод, так как его необходимо обязательно переопредилть
-    abstract void run(int distance);
-    abstract void swim(int distance);
-    abstract void jump(int distance);
+    // Опишем общую логику для всех дочерних классов
+    void run (int distance) {
+        if (distance > this.runningLimit) {
+            System.out.println(this.name + " run false");
+        } else {
+            System.out.println(this.name + " run true");
+        }
+    }
+
+    void jump (int distance) {
+        if (distance > this.jumpLimit) {
+            System.out.println(this.name + " jump false");
+        } else {
+            System.out.println(this.name + " jump true");
+        }
+    }
+
+    void swim(int distance) {
+        if (distance > this.swimLimit) {
+            // Обращаюсь к наследованному полю текущего класса, теперь это и его поле то же
+            System.out.println(this.name + " swim false");
+        } else {
+            System.out.println(this.name + " swim true");
+        }
+    }
 }

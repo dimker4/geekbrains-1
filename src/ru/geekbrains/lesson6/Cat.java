@@ -11,27 +11,11 @@ public class Cat extends Animal {
         super(name, runningLimit, 0, 2);
     }
 
-    @Override
-    void run (int distance) {
-        if (distance > this.runningLimit) {
-            System.out.println(this.name + " run false");
-        } else {
-            System.out.println(this.name + " run true");
-        }
-    }
-
+    // Так как кот не умеет плавать, переопределим ему метод
     @Override
     void swim(int distance) {
         System.out.println(this.name + " swim false");
     }
 
-    @Override
-    void jump (int distance) {
-        if (distance > this.jumpLimit) {
-            System.out.println(this.name + " jump false");
-        } else {
-            System.out.println(this.name + " jump true");
-        }
-    }
 
 }
