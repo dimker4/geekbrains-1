@@ -34,7 +34,6 @@ public abstract class Animal { // Абстракрый класс, так как
 
     void swim(int distance) {
         if (distance > this.swimLimit) {
-            // Обращаюсь к наследованному полю текущего класса, теперь это и его поле то же
             System.out.println(this.name + " swim false");
         } else {
             System.out.println(this.name + " swim true");
