@@ -3,9 +3,9 @@ package ru.geekbrains.lesson6;
 public abstract class Animal { // Абстракрый класс, так как нам не надо создавать объекты Animal, это только шаблон
     // Видимость в пределах пакета и у наследников и обязательная к инициализации
     protected final String name;
-    protected int runningLimit;
-    protected int swimLimit;
-    protected double jumpLimit;
+    protected final int runningLimit;
+    protected final int swimLimit;
+    protected final double jumpLimit;
 
     // Создадим единственный конструктор, который обязывает при его вызове задать лимиты для действий
     Animal(String name, int runningLimit, int swimLimit, double jumpLimit) {
