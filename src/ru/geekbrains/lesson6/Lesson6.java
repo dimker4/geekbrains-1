@@ -10,9 +10,11 @@ public class Lesson6 {
         Dog dog = new Dog("Bobik");
         Dog dog1 = new Dog("Sharik", 500);
 
+        dog.run(10);
+        dog.run(10000);
         cat.jump(200);
         cat.swim(100);
-        cat.run(200);
+        cat.run(100);
 
         dog.jump(200);
         dog.swim(100);

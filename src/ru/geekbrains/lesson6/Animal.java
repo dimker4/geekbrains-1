@@ -17,26 +17,14 @@ public abstract class Animal { // Абстракрый класс, так как
 
     // Опишем общую логику для всех дочерних классов
     void run (int distance) {
-        if (distance > this.runningLimit) {
-            System.out.println(this.name + " run false");
-        } else {
-            System.out.println(this.name + " run true");
-        }
+        System.out.println(this.name + " run: "+ (distance < this.runningLimit));
     }
 
     void jump (int distance) {
-        if (distance > this.jumpLimit) {
-            System.out.println(this.name + " jump false");
-        } else {
-            System.out.println(this.name + " jump true");
-        }
+        System.out.println(this.name + " jump: "+ (distance < this.jumpLimit));
     }
 
     void swim(int distance) {
-        if (distance > this.swimLimit) {
-            System.out.println(this.name + " swim false");
-        } else {
-            System.out.println(this.name + " swim true");
-        }
+        System.out.println(this.name + " swim: "+ (distance < this.swimLimit));
     }
 }
