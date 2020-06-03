@@ -20,7 +20,7 @@ public class Plate {
         if (this.food >= animalAppetite && animalAppetite > 0) { // Запретим отрицательное количество еды в миске
             this.food -= animalAppetite;
         } else {
-            System.out.println("Невозможно скушать больше, чем есть еды в миске");
+            System.out.println("Покушать не получилось");
         }
     }
 
